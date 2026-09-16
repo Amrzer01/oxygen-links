@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>مبادرة أكسجين | تواصل معنا</title>
+    <meta name="description" content="تابع مبادرة أكسجين على جميع منصات التواصل الاجتماعي">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --green:       #16a34a;
+            --green-light: #22c55e;
+            --green-glow:  rgba(22,163,74,0.35);
+            --dark:        #060d14;
+            --card-bg:     rgba(255,255,255,0.06);
+            --card-border: rgba(255,255,255,0.10);
+        }
+
+        html, body {
+            min-height: 100%;
+            font-family: 'Cairo', sans-serif;
+            background: var(--dark);
+            color: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── Animated background ─── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 50% -10%, rgba(22,163,74,0.22) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 90% 80%,  rgba(34,197,94,0.10) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 30% at 10% 70%,  rgba(22,163,74,0.08) 0%, transparent 60%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* floating orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.18;
+            pointer-events: none;
+            z-index: 0;
+            animation: drift 12s ease-in-out infinite alternate;
+        }
+        .orb-1 { width: 380px; height: 380px; background: var(--green);       top: -100px; right: -80px;  animation-delay: 0s; }
+        .orb-2 { width: 280px; height: 280px; background: var(--green-light); bottom: 0;   left: -60px;  animation-delay: -4s; }
+        .orb-3 { width: 200px; height: 200px; background: #0ea5e9;            bottom: 30%; right: -40px; animation-delay: -8s; opacity: 0.10; }
+
+        @keyframes drift {
+            from { transform: translate(0, 0) scale(1); }
+            to   { transform: translate(20px, 30px) scale(1.08); }
+        }
+
+        /* ─── Layout ─── */
+        .page-wrap {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 48px 20px 64px;
+        }
+
+        /* ─── Profile ─── */
+        .profile {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo-ring {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(135deg, var(--green), var(--green-light), #a3e635);
+            margin: 0 auto 20px;
+            animation: spin-ring 6s linear infinite;
+        }
+        @keyframes spin-ring {
+            from { --angle: 135deg; }
+            to   { --angle: 495deg; }
+        }
+
+        .logo-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #0d1a12;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .logo-inner img {
+            width: 82px;
+            height: 82px;
+            object-fit: contain;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(22,163,74,0.15);
+            border: 1px solid rgba(22,163,74,0.35);
+            color: var(--green-light);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 999px;
+            margin-bottom: 10px;
+        }
+        .badge::before { content: '●'; font-size: 0.55rem; animation: pulse-dot 1.5s ease infinite; }
+        @keyframes pulse-dot {
+            0%,100% { opacity: 1; }
+            50%      { opacity: 0.3; }
+        }
+
+        .profile h1 {
+            font-size: 1.75rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #fff 40%, #86efac);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .profile p {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.55);
+            max-width: 300px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ─── Links container ─── */
+        .links {
+            width: 100%;
+            max-width: 420px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* ─── Section label ─── */
+        .section-label {
+            text-align: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.25);
+            margin: 8px 0 4px;
+        }
+
+        /* ─── Link card ─── */
+        .link-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 15px 20px;
+            border-radius: 18px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            text-decoration: none;
+            color: #fff;
+            cursor: pointer;
+            transition: transform 0.22s cubic-bezier(.4,0,.2,1),
+                        box-shadow  0.22s cubic-bezier(.4,0,.2,1),
+                        background  0.22s ease,
+                        border-color 0.22s ease;
+            position: relative;
+            overflow: hidden;
+            animation: card-in 0.4s both;
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.07) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.22s;
+        }
+
+        .link-card:hover::before { opacity: 1; }
+
+        .link-card:hover {
+            transform: translateY(-3px) scale(1.015);
+            box-shadow: 0 12px 32px -8px var(--shadow-color, rgba(0,0,0,0.5));
+            border-color: var(--accent, var(--card-border));
+        }
+
+        .link-card:active {
+            transform: scale(0.97);
+        }
+
+        @keyframes card-in {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* icon circle */
+        .icon-wrap {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            transition: transform 0.22s ease;
+        }
+        .link-card:hover .icon-wrap {
+            transform: scale(1.12);
+        }
+
+        .card-text {
+            flex: 1;
+            min-width: 0;
+        }
+        .card-title {
+            font-size: 1rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        .card-sub {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.45);
+            margin-top: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .arrow {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.25);
+            flex-shrink: 0;
+            transition: transform 0.22s ease, color 0.22s;
+        }
+        .link-card:hover .arrow {
+            transform: translateX(-4px);
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* ─── Platform colours ─── */
+        /* WhatsApp */
+        .c-wa  { --accent: rgba(37,211,102,0.5); --shadow-color: rgba(37,211,102,0.3); }
+        .c-wa  .icon-wrap { background: linear-gradient(135deg, #128C7E, #25D366); }
+
+        /* Instagram */
+        .c-ig  { --accent: rgba(225,48,108,0.45); --shadow-color: rgba(225,48,108,0.25); }
+        .c-ig  .icon-wrap { background: linear-gradient(135deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); }
+
+        /* Facebook */
+        .c-fb  { --accent: rgba(24,119,242,0.45); --shadow-color: rgba(24,119,242,0.25); }
+        .c-fb  .icon-wrap { background: linear-gradient(135deg, #1877F2, #3b9cf2); }
+
+        /* X / Twitter */
+        .c-x   { --accent: rgba(255,255,255,0.2); --shadow-color: rgba(255,255,255,0.1); }
+        .c-x   .icon-wrap { background: #000; border: 1px solid rgba(255,255,255,0.15); }
+
+        /* YouTube */
+        .c-yt  { --accent: rgba(255,0,0,0.45); --shadow-color: rgba(255,0,0,0.25); }
+        .c-yt  .icon-wrap { background: linear-gradient(135deg, #c4302b, #FF0000); }
+
+        /* TikTok */
+        .c-tt  { --accent: rgba(105,201,208,0.4); --shadow-color: rgba(105,201,208,0.2); }
+        .c-tt  .icon-wrap { background: linear-gradient(135deg, #010101, #69C9D0, #EE1D52); }
+
+        /* LinkedIn */
+        .c-li  { --accent: rgba(10,102,194,0.45); --shadow-color: rgba(10,102,194,0.25); }
+        .c-li  .icon-wrap { background: linear-gradient(135deg, #0077B5, #0A66C2); }
+
+        /* WhatsApp community */
+        .c-wac { --accent: rgba(37,211,102,0.5); --shadow-color: rgba(37,211,102,0.3); }
+        .c-wac .icon-wrap { background: linear-gradient(135deg, #075E54, #25D366); }
+
+        /* Email */
+        .c-em  { --accent: rgba(22,163,74,0.4); --shadow-color: rgba(22,163,74,0.2); }
+        .c-em  .icon-wrap { background: linear-gradient(135deg, #15803d, #22c55e); }
+
+        /* animation delays */
+        .links .link-card:nth-child(1)  { animation-delay: 0.05s; }
+        .links .link-card:nth-child(2)  { animation-delay: 0.10s; }
+        .links .link-card:nth-child(3)  { animation-delay: 0.15s; }
+        .links .link-card:nth-child(4)  { animation-delay: 0.20s; }
+        .links .link-card:nth-child(5)  { animation-delay: 0.25s; }
+        .links .link-card:nth-child(6)  { animation-delay: 0.30s; }
+        .links .link-card:nth-child(7)  { animation-delay: 0.35s; }
+        .links .link-card:nth-child(8)  { animation-delay: 0.40s; }
+        .links .link-card:nth-child(9)  { animation-delay: 0.45s; }
+
+        /* ─── Divider ─── */
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255,255,255,0.15);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+        }
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.08);
+        }
+
+        /* ─── Footer ─── */
+        .footer {
+            margin-top: 48px;
+            text-align: center;
+            color: rgba(255,255,255,0.2);
+            font-size: 0.75rem;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, .orb, .link-card { animation: none !important; transition-duration: 0.01ms !important; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- floating background orbs -->
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<div class="page-wrap">
+
+    <!-- Profile -->
+    <div class="profile">
+        <div class="logo-ring">
+            <div class="logo-inner">
+                <img src="logo.webp" alt="Oxygen Logo" fetchpriority="high">
+            </div>
+        </div>
+        <div class="badge">مبادرة أكسجين 🇪🇬</div>
+        <h1>مبادرة أكسجين</h1>
+        <p>معاً نصنع متنفساً جديداً لمدننا ونعيد للحياة نبضها الأخضر 🌱</p>
+    </div>
+
+    <!-- Links -->
+    <div class="links">
+
+        <!-- WhatsApp Community -->
+        <div class="section-label">انضم لمجتمعنا</div>
+
+        <a href="https://chat.whatsapp.com/Kasz2jViWr3DZfZsWs2bFk" target="_blank" rel="noopener noreferrer" class="link-card c-wac">
+            <div class="icon-wrap">
+                <i class="fa-brands fa-whatsapp" style="color:#fff"></i>
+            </div>
+            <div class="card-text">
+                <div class="card-title">كوميونيتي واتساب</div>
+                <div class="card-sub">انضم لمجتمعنا الرسمي الآن</div>
+            </div>
+            <i class="fa-solid fa-chevron-left arrow"></i>
+        </a>
+
+        <!-- Social media -->
+        <div class="section-label">تابعنا على المنصات</div>
+
+        <a href="https://www.instagram.com/_oxygen_initiative?stkn=OHN4Y2xhdDBuNnBl" target="_blank" rel="noopener noreferrer" class="link-card c-ig">
+            <div class="icon-wrap">
+                <i class="fa-brands fa-instagram" style="color:#fff"></i>
+            </div>
+            <div class="card-text">
+                <div class="card-title">إنستغرام</div>
+                <div class="card-sub">@_oxygen_initiative</div>
+            </div>
+            <i class="fa-solid fa-chevron-left arrow"></i>
+        </a>
+
+        <a href="https://www.facebook.com/share/1Bz8PEDCAL/" target="_blank" rel="noopener noreferrer" class="link-card c-fb">
+            <div class="icon-wrap">
+                <i class="fa-brands fa-facebook-f" style="color:#fff"></i>
+            </div>
+            <div class="card-text">
+                <div class="card-title">فيسبوك</div>
+                <div class="card-sub">Oxygen Initiative</div>
+            </div>
+            <i class="fa-solid fa-chevron-left arrow"></i>
+        </a>
+
+        <a href="https://www.tiktok.com/@oxygen.initiative.eg?_r=1&_t=ZS-99jUNuQinsz" target="_blank" rel="noopener noreferrer" class="link-card c-tt">
+            <div class="icon-wrap">
+                <i class="fa-brands fa-tiktok" style="color:#fff"></i>
+            </div>
+            <div class="card-text">
+                <div class="card-title">تيك توك</div>
+                <div class="card-sub">@oxygen.initiative.eg</div>
+            </div>
+            <i class="fa-solid fa-chevron-left arrow"></i>
+        </a>
+
+        <a href="https://youtube.com/@oxygen_initiative?si=vCkfz5pJJ7KKMXWs" target="_blank" rel="noopener noreferrer" class="link-card c-yt">
+            <div class="icon-wrap">
+                <i class="fa-brands fa-youtube" style="color:#fff"></i>
+            </div>
+            <div class="card-text">
+                <div class="card-title">يوتيوب</div>
+                <div class="card-sub">@oxygen_initiative</div>
+            </div>
+            <i class="fa-solid fa-chevron-left arrow"></i>
+        </a>
+
+        <a href="https://x.com/Oxygen_eg" target="_blank" rel="noopener noreferrer" class="link-card c-x">
+            <div class="icon-wrap">
+                <i class="fa-brands fa-x-twitter" style="color:#fff"></i>
+            </div>
+            <div class="card-text">
+                <div class="card-title">X (تويتر)</div>
+                <div class="card-sub">@Oxygen_eg</div>
+            </div>
+            <i class="fa-solid fa-chevron-left arrow"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/oxygen-initiative-819ab7429?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="link-card c-li">
+            <div class="icon-wrap">
+                <i class="fa-brands fa-linkedin-in" style="color:#fff"></i>
+            </div>
+            <div class="card-text">
+                <div class="card-title">لينكد إن</div>
+                <div class="card-sub">Oxygen Initiative</div>
+            </div>
+            <i class="fa-solid fa-chevron-left arrow"></i>
+        </a>
+
+        <!-- Contact -->
+        <div class="section-label">تواصل مباشر</div>
+
+        <a href="https://wa.me/201559090846" target="_blank" rel="noopener noreferrer" class="link-card c-wa">
+            <div class="icon-wrap">
+                <i class="fa-brands fa-whatsapp" style="color:#fff"></i>
+            </div>
+            <div class="card-text">
+                <div class="card-title">واتساب ١</div>
+                <div class="card-sub" dir="ltr">+20 155 909 0846</div>
+            </div>
+            <i class="fa-solid fa-chevron-left arrow"></i>
+        </a>
+
+        <a href="https://wa.me/201035246291" target="_blank" rel="noopener noreferrer" class="link-card c-wa">
+            <div class="icon-wrap">
+                <i class="fa-brands fa-whatsapp" style="color:#fff"></i>
+            </div>
+            <div class="card-text">
+                <div class="card-title">واتساب ٢</div>
+                <div class="card-sub" dir="ltr">+20 103 524 6291</div>
+            </div>
+            <i class="fa-solid fa-chevron-left arrow"></i>
+        </a>
+
+        <a href="mailto:Oxygen.initiative.eg@gmail.com" class="link-card c-em">
+            <div class="icon-wrap">
+                <i class="fa-solid fa-envelope" style="color:#fff"></i>
+            </div>
+            <div class="card-text">
+                <div class="card-title">البريد الإلكتروني</div>
+                <div class="card-sub" dir="ltr">Oxygen.initiative.eg@gmail.com</div>
+            </div>
+            <i class="fa-solid fa-chevron-left arrow"></i>
+        </a>
+
+    </div>
+
+    <div class="footer">
+        <p>© 2026 مبادرة أكسجين — جميع الحقوق محفوظة</p>
+    </div>
+</div>
+
+</body>
+</html>
