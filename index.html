@@ -36,7 +36,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 56px 20px 72px;
+            padding: 56px 20px 80px;
         }
 
         /* ── Top bar (matches main site navbar feel) ── */
@@ -144,7 +144,7 @@
             max-width: 440px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
 
         /* ── Group label ── */
@@ -272,6 +272,47 @@
         .ic-li   { background: #0A66C2; }
         .ic-em   { background: linear-gradient(135deg, #15803d, #22c55e); }
 
+
+        /* ── Per-platform card tints ── */
+        /* Each card gets a subtle 4% tint of its brand colour as background */
+        .card-wac  { background: #f0fff8; border-color: rgba(37,211,102,0.18); }
+        .card-wac:hover { border-color: rgba(37,211,102,0.38); box-shadow: 0 8px 24px rgba(37,211,102,0.12); }
+
+        .card-ig   { background: #fff0f8; border-color: rgba(193,53,132,0.14); }
+        .card-ig:hover { border-color: rgba(193,53,132,0.30); box-shadow: 0 8px 24px rgba(193,53,132,0.10); }
+
+        .card-fb   { background: #f0f5ff; border-color: rgba(24,119,242,0.14); }
+        .card-fb:hover { border-color: rgba(24,119,242,0.30); box-shadow: 0 8px 24px rgba(24,119,242,0.10); }
+
+        .card-tt   { background: #f8f8f8; border-color: rgba(0,0,0,0.10); }
+        .card-tt:hover { border-color: rgba(0,0,0,0.22); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+
+        .card-yt   { background: #fff0f0; border-color: rgba(255,0,0,0.14); }
+        .card-yt:hover { border-color: rgba(255,0,0,0.30); box-shadow: 0 8px 24px rgba(255,0,0,0.08); }
+
+        .card-x    { background: #f7f7f7; border-color: rgba(0,0,0,0.10); }
+        .card-x:hover { border-color: rgba(0,0,0,0.22); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+
+        .card-li   { background: #f0f6ff; border-color: rgba(10,102,194,0.14); }
+        .card-li:hover { border-color: rgba(10,102,194,0.30); box-shadow: 0 8px 24px rgba(10,102,194,0.10); }
+
+        .card-wa   { background: #f0fff8; border-color: rgba(37,211,102,0.18); }
+        .card-wa:hover { border-color: rgba(37,211,102,0.38); box-shadow: 0 8px 24px rgba(37,211,102,0.12); }
+
+        .card-em   { background: #f0fdf4; border-color: rgba(22,163,74,0.18); }
+        .card-em:hover { border-color: rgba(22,163,74,0.38); box-shadow: 0 8px 24px rgba(22,163,74,0.12); }
+
+        /* Override the hover border-left accent to match each brand */
+        .card-ig::before  { background: linear-gradient(to bottom, #833AB4, #E1306C); }
+        .card-fb::before  { background: #1877F2; }
+        .card-tt::before  { background: #000; }
+        .card-yt::before  { background: #FF0000; }
+        .card-x::before   { background: #000; }
+        .card-li::before  { background: #0A66C2; }
+        .card-wa::before,
+        .card-wac::before { background: linear-gradient(to bottom, #128C7E, #25D366); }
+        .card-em::before  { background: linear-gradient(to bottom, #15803d, #22c55e); }
+
         /* ── CTA button (matches main site btn-apple) ── */
         .cta {
             display: flex;
@@ -386,7 +427,7 @@
         <!-- Community -->
         <div class="group-label">انضم لمجتمعنا</div>
 
-        <a href="https://chat.whatsapp.com/Kasz2jViWr3DZfZsWs2bFk" target="_blank" rel="noopener noreferrer" class="link-row">
+        <a href="https://chat.whatsapp.com/Kasz2jViWr3DZfZsWs2bFk" target="_blank" rel="noopener noreferrer" class="link-row card-wac">
             <div class="link-icon ic-wac"><i class="fa-brands fa-whatsapp"></i></div>
             <div class="link-body">
                 <div class="link-title">كوميونيتي واتساب</div>
@@ -400,7 +441,7 @@
         <!-- Social Platforms -->
         <div class="group-label">تابعنا</div>
 
-        <a href="https://www.instagram.com/_oxygen_initiative?stkn=OHN4Y2xhdDBuNnBl" target="_blank" rel="noopener noreferrer" class="link-row">
+        <a href="https://www.instagram.com/_oxygen_initiative?stkn=OHN4Y2xhdDBuNnBl" target="_blank" rel="noopener noreferrer" class="link-row card-ig">
             <div class="link-icon ic-ig"><i class="fa-brands fa-instagram"></i></div>
             <div class="link-body">
                 <div class="link-title">إنستغرام</div>
@@ -409,7 +450,7 @@
             <i class="fa-solid fa-chevron-left link-arrow"></i>
         </a>
 
-        <a href="https://www.facebook.com/share/1Bz8PEDCAL/" target="_blank" rel="noopener noreferrer" class="link-row">
+        <a href="https://www.facebook.com/share/1Bz8PEDCAL/" target="_blank" rel="noopener noreferrer" class="link-row card-fb">
             <div class="link-icon ic-fb"><i class="fa-brands fa-facebook-f"></i></div>
             <div class="link-body">
                 <div class="link-title">فيسبوك</div>
@@ -418,7 +459,7 @@
             <i class="fa-solid fa-chevron-left link-arrow"></i>
         </a>
 
-        <a href="https://www.tiktok.com/@oxygen.initiative.eg?_r=1&_t=ZS-99jUNuQinsz" target="_blank" rel="noopener noreferrer" class="link-row">
+        <a href="https://www.tiktok.com/@oxygen.initiative.eg?_r=1&_t=ZS-99jUNuQinsz" target="_blank" rel="noopener noreferrer" class="link-row card-tt">
             <div class="link-icon ic-tt"><i class="fa-brands fa-tiktok"></i></div>
             <div class="link-body">
                 <div class="link-title">تيك توك</div>
@@ -427,7 +468,7 @@
             <i class="fa-solid fa-chevron-left link-arrow"></i>
         </a>
 
-        <a href="https://youtube.com/@oxygen_initiative?si=vCkfz5pJJ7KKMXWs" target="_blank" rel="noopener noreferrer" class="link-row">
+        <a href="https://youtube.com/@oxygen_initiative?si=vCkfz5pJJ7KKMXWs" target="_blank" rel="noopener noreferrer" class="link-row card-yt">
             <div class="link-icon ic-yt"><i class="fa-brands fa-youtube"></i></div>
             <div class="link-body">
                 <div class="link-title">يوتيوب</div>
@@ -436,7 +477,7 @@
             <i class="fa-solid fa-chevron-left link-arrow"></i>
         </a>
 
-        <a href="https://x.com/Oxygen_eg" target="_blank" rel="noopener noreferrer" class="link-row">
+        <a href="https://x.com/Oxygen_eg" target="_blank" rel="noopener noreferrer" class="link-row card-x">
             <div class="link-icon ic-x"><i class="fa-brands fa-x-twitter"></i></div>
             <div class="link-body">
                 <div class="link-title">X (تويتر)</div>
@@ -445,7 +486,7 @@
             <i class="fa-solid fa-chevron-left link-arrow"></i>
         </a>
 
-        <a href="https://www.linkedin.com/in/oxygen-initiative-819ab7429?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="link-row">
+        <a href="https://www.linkedin.com/in/oxygen-initiative-819ab7429?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="link-row card-li">
             <div class="link-icon ic-li"><i class="fa-brands fa-linkedin-in"></i></div>
             <div class="link-body">
                 <div class="link-title">لينكد إن</div>
@@ -459,7 +500,7 @@
         <!-- Direct contact -->
         <div class="group-label">تواصل مباشر</div>
 
-        <a href="https://wa.me/201559090846" target="_blank" rel="noopener noreferrer" class="link-row">
+        <a href="https://wa.me/201559090846" target="_blank" rel="noopener noreferrer" class="link-row card-wa">
             <div class="link-icon ic-wa"><i class="fa-brands fa-whatsapp"></i></div>
             <div class="link-body">
                 <div class="link-title">واتساب ١</div>
@@ -468,7 +509,7 @@
             <i class="fa-solid fa-chevron-left link-arrow"></i>
         </a>
 
-        <a href="https://wa.me/201035246291" target="_blank" rel="noopener noreferrer" class="link-row">
+        <a href="https://wa.me/201035246291" target="_blank" rel="noopener noreferrer" class="link-row card-wa">
             <div class="link-icon ic-wa"><i class="fa-brands fa-whatsapp"></i></div>
             <div class="link-body">
                 <div class="link-title">واتساب ٢</div>
@@ -477,7 +518,7 @@
             <i class="fa-solid fa-chevron-left link-arrow"></i>
         </a>
 
-        <a href="mailto:Oxygen.initiative.eg@gmail.com" class="link-row">
+        <a href="mailto:Oxygen.initiative.eg@gmail.com" class="link-row card-em">
             <div class="link-icon ic-em"><i class="fa-solid fa-envelope"></i></div>
             <div class="link-body">
                 <div class="link-title">البريد الإلكتروني</div>
